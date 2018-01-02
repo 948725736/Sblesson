@@ -1,0 +1,74 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <!DOCTYPE html>
+<html>
+<head>
+<title>layout.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.easyui.min.js"></script>
+<style type="text/css">
+body {
+	font-size: 14px;
+}
+</style>
+
+<script type="text/javascript">
+	function tabClick(){
+	
+		var ifExist=$("#tabs").tabs("exists","菜品管理");
+	
+		if(!ifExist){
+			$("#tabs").tabs("add",{    
+			    title:"菜品管理",    
+			    content:'<iframe width="100%" height="100%" scrolling="no" frameborder="0" src="crud.html"></iframe>',    
+			    closable:true, 
+			    select:'菜品管理'    
+			}); 
+		}
+		
+		$("#tabs").tabs("select","菜品管理");
+
+	}
+
+
+</script>
+
+
+</head>
+<body style="margin: 0px;padding: 1px">
+	<div class="easyui-layout" style="width:100%;height:880px">
+		<div data-options="region:'north'" style="height:20%"></div>
+		<div data-options="region:'west',split:true" title="导航菜单" style="width:10%">
+		
+			<div class="easyui-accordion" style="width:100%;height:300px;">
+				<div title="权限管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:5px;">
+					<div>
+						<a href="#" style="text-decoration: none">
+							<img alt="" src="themes/icons/man.png">用戶管理
+						</a>
+					</div>
+					<div style="margin-top: 5px">
+						<a href="javascript:tabClick()" style="text-decoration: none" >
+							<img alt="" src="themes/icons/ok.png">菜品管理
+						</a>
+					</div>
+
+				</div>
+				<div title="帮助" data-options="iconCls:'icon-help'" style="padding:10px;"></div>
+				<div title="查找" data-options="iconCls:'icon-search'" style="padding:10px;"></div>
+			</div>		
+		</div>
+		<div data-options="region:'center',title:'',iconCls:'icon-ok'" >
+			<div class="easyui-tabs" style="width:100%;height:100%" id="tabs">
+				<div title="欢迎使用" style="padding:10px"></div>
+		    </div>
+		</div>
+	</div>
+</body>
+</html>
